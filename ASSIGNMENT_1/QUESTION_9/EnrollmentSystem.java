@@ -1,5 +1,7 @@
 package Q9;
 
-public class EnrollmentSystem {
-
+interface EnrollmentSystem {
+    void enrollStudent(Student student, Course course);
+    void dropStudent(Student student, Course course);
+    void displayEnrollmentDetails();
 }
