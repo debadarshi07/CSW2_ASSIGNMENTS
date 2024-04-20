@@ -1,4 +1,4 @@
-package Q09;
+package Q10;
 
 import java.util.HashMap;
 
