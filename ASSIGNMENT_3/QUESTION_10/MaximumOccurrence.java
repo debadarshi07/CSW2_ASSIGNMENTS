@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class MaximumOccurrence {
     public static void findMostOccurringWords(String text) {
         // Split the text into words
-        String[] words = text.split("\\s+");
+        String[] words = text.split(" ");
 
         // Create a Hashtable to store word frequencies
         HashMap<String, Integer> wordFrequencyMap = new HashMap<>();
