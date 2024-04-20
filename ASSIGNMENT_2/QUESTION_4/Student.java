@@ -33,10 +33,12 @@ public class Student implements Comparable<Student>{
 		Student s4=new Student("Shubhman",77,33);
 		Student s5=new Student("Yashasvi",64,31);
 		Student s6=new Student("Kuldeep",23,28);
+
+		Student target=new Student("Rohit",45,29);
 		
 		Student students[]= {s1,s2,s4,s6,s3,s5};
 		
-		findStudent(students,s4);
+		findStudent(students,target);
 	}
 	
 }
