@@ -2,17 +2,13 @@ package ErrorHandling;
 import java.util.Scanner;
 
 public class Q13 {
-	
 	public static double evaluateFunction(double x) throws ArithmeticException {
         double sinX = Math.sin(x);
         double cosX = Math.cos(x);
         double numerator = sinX * cosX;
         double denominator = sinX + cosX;
 
-        if (isCloseToMultipleOfPiOver2(x)) {
-            throw new ArithmeticException("Denominator is tending towards zero.");
-        }
-
+        if (isCloseToMultipleOfPiOver2(x)) throw new ArithmeticException("Denominator is tending towards zero.");
         return numerator / denominator;
     }
 
@@ -34,7 +30,5 @@ public class Q13 {
         }finally {
         	sc.close();
         }
-    }
-
-    
+    }  
 }
