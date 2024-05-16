@@ -4,7 +4,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.LinkedList;
 
-class Graph {
+public class Graph {
     private int vertices;
     private LinkedList<Integer>[] adjList;
 
@@ -52,9 +52,6 @@ class Graph {
         }
         System.out.println();
     }
-}
-
-public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of vertices: ");
