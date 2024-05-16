@@ -5,45 +5,37 @@ class Node {
 	Node next;
 	public Node(int data) {
 		this.data = data;
-		this.next = null;
+		next = null;
 	}
 }
-class Q17{
-
-
+class Q17 {
 	static class LinkedListExample {
-		private Node head;
-		public LinkedListExample() {
-			this.head = null;
+		Node head;
+		LinkedListExample() {
+			this.head=null;
 		}
 		public void insert(int data) {
-			Node newNode = new Node(data);
-			if (head == null) {
-				head = newNode;
-			} else {
-				Node current = head;
-				while (current.next != null) {
-					current = current.next;
-				}
-				current.next = newNode;
+			Node newNode=new Node(data);
+			if (head==null) head=newNode;
+			 else {
+				Node current=head;
+				while (current.next!=null) current=current.next;
+				current.next=newNode;
 			}
 		}
 		public int getElementAtIndex(int index) {
-			if (head == null || index < 0) {
-				throw new ArrayIndexOutOfBoundsException("Index out of bounds");
-			}
-			Node current = head;
-			for (int i = 0; i < index; i++) {
-				if (current.next == null) {
-					throw new ArrayIndexOutOfBoundsException("Index out of bounds");
-				}
-				current = current.next;
+			if (head==null || index<0) throw new ArrayIndexOutOfBoundsException("Index out of bounds");
+			
+			Node current=head;
+			for (int i=0;i<index;i++) {
+				if (current.next==null) throw new ArrayIndexOutOfBoundsException("Index out of bounds");
+				current=current.next;
 			}
 			return current.data;
 		}
 		public static void main(String[] args) {
 
-			LinkedListExample linkedList = new LinkedListExample();
+			LinkedListExample linkedList=new LinkedListExample();
 			linkedList.insert(10);
 			linkedList.insert(20);
 			linkedList.insert(30);
