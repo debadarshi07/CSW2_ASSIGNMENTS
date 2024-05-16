@@ -4,16 +4,16 @@ import java.util.Scanner;
 public class Q15 {
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		Scanner sc=new Scanner(System.in);
 
 		System.out.print("Enter a number: ");
-		String input = sc.nextLine();
+		String input=sc.nextLine();
 
 		try {
-			int number = Integer.parseInt(input);
+			int number=Integer.parseInt(input);
 
 			try {
-				int result = 10 / number;
+				int result=10 / number;
 				System.out.println("Result: " + result);
 			} catch (ArithmeticException e) {
 				System.out.println("A number can't be divided by zero: ");
@@ -23,6 +23,5 @@ public class Q15 {
 		}finally {
 			sc.close();
 		}
-
 	}
 }
