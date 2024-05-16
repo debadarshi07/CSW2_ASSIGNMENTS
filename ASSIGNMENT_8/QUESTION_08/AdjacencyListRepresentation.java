@@ -18,8 +18,8 @@ public class AdjacencyListRepresentation {
 	}
 
 	void removeEdge(int source,int destination) {
-		adjacencyList.get(source).add(null);
-		adjacencyList.get(destination).add(null);
+		adjacencyList.get(source).add(destination);
+		adjacencyList.get(destination).add(source);
 	}
 
 	void displayAdjList() {
@@ -32,10 +32,10 @@ public class AdjacencyListRepresentation {
 	
 	public static void main(String[] args) {
 		AdjacencyListRepresentation graph=new AdjacencyListRepresentation(4);
-		graph.addEdge(0, 1);
-		graph.addEdge(1, 2);
-		graph.addEdge(1, 3);
-		graph.addEdge(2, 3);
+		graph.addEdge(0,1);
+		graph.addEdge(1,2);
+		graph.addEdge(1,3);
+		graph.addEdge(2,3);
 		graph.displayAdjList();
 	}
 }
