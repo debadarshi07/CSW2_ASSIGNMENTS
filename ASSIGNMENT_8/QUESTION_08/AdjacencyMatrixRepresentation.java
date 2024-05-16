@@ -1,5 +1,5 @@
 package Q08;
-public class AdjacencyMatrixRepresentation {
+class AdjacencyMatrixRepresentation {
 	int adjacencyMatrix[][];
 	int vertices;
 	AdjacencyMatrixRepresentation(int vertices){
@@ -8,13 +8,11 @@ public class AdjacencyMatrixRepresentation {
 	}
 	
 	void addEdge(int source,int destination) {
-		adjacencyMatrix[source][destination]=1;
-		adjacencyMatrix[destination][source]=1;
+		adjacencyMatrix[source][destination]=adjacencyMatrix[destination][source]=1;
 	}
 	
 	void removeEdge(int source,int destination) {
-		adjacencyMatrix[source][destination]=0;
-		adjacencyMatrix[destination][source]=0;
+		adjacencyMatrix[source][destination]=adjacencyMatrix[destination][source]=0;
 	}
 	
 	void displayAdjMatrix() {
@@ -27,9 +25,11 @@ public class AdjacencyMatrixRepresentation {
 	
 	public static void main(String[] args) {
 		AdjacencyMatrixRepresentation graph=new AdjacencyMatrixRepresentation(4);
-		graph.addEdge(0, 1);
-		graph.addEdge(1, 2);
-		graph.addEdge(1, 3);
+		graph.addEdge(0,1);
+		graph.addEdge(1,2);
+		graph.addEdge(1,3);
+		graph.addEdge(3, 2);
+		graph.removeEdge(2, 1);
 		graph.displayAdjMatrix();
 	}
 }
