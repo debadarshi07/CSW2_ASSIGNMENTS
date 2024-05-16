@@ -2,7 +2,7 @@ package Q08;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
-public class AdjacencyListRepresentation {
+class AdjacencyListRepresentation {
 	List<List<Integer>> adjacencyList;
 	int vertices;
 	AdjacencyListRepresentation(int vertices){
