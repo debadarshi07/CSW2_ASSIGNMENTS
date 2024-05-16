@@ -8,18 +8,18 @@ public class Graph {
 	LinkedList<Integer>[] adjacentList;
 	int vertices;
 
-	public Graph(int vertices) {
+	Graph(int vertices) {
 		this.vertices=vertices;
 		adjacentList=new LinkedList[vertices];
 		for(int i=0;i<vertices;i++) adjacentList[i]=new LinkedList<>();
 	}
 
-	public void addEdge(int source,int destination) {
+	void addEdge(int source,int destination) {
 		adjacentList[source].add(destination);
 		adjacentList[destination].add(source);
 	}
 
-	public void readGraph() {
+	void readGraph() {
 		Scanner sc=new Scanner(System.in);
 		System.out.print("Enter the number of edges: ");
 		int edges=sc.nextInt();
@@ -31,7 +31,7 @@ public class Graph {
 		sc.close();
 	}
 
-	public void BFS(int initial) {
+	void BFS(int initial) {
 		boolean[] visited=new boolean[vertices];
 		Queue<Integer> queue=new ArrayDeque<>();
 		visited[initial]=true;
