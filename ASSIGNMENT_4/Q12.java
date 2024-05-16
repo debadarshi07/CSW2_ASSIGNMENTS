@@ -2,23 +2,16 @@ package ErrorHandling;
 import java.util.Scanner;
 
 public class Q12 {
-	
 	 public static double calculateExpressionValue(double x) throws ArithmeticException {
-	        double sinX = Math.sin(x);
-	        double cosX = Math.cos(x);
-	        double tanX = Math.tan(x);
+	        double sinX=Math.sin(x);
+	        double cosX=Math.cos(x);
+	        double tanX=Math.tan(x);
 
-	        if (isCloseToMultipleOfPiOver2(x)) {
-	            throw new ArithmeticException("Denominator is tending towards zero.");
-	        }
+	        if (isCloseToMultipleOfPiOver2(x)) throw new ArithmeticException("Denominator is tending towards zero.");
+	        double expressionInsideSqrt=Math.abs(sinX * cosX);
 
-	        double expressionInsideSqrt = Math.abs(sinX * cosX);
-
-	        if (expressionInsideSqrt < 0) {
-	            throw new ArithmeticException("Square root of a negative number is a complex number.");
-	        }
-
-	        double denominator = tanX + 1;
+	        if (expressionInsideSqrt < 0) throw new ArithmeticException("Square root of a negative number is a complex number.");
+	        double denominator=tanX + 1;
 
 	        return Math.sqrt(expressionInsideSqrt) / denominator;
 	    }
@@ -42,6 +35,4 @@ public class Q12 {
         	sc.close();
         }
     }
-
-   
 }
