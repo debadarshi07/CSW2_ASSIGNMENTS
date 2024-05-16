@@ -1,13 +1,11 @@
 package ErrorHandling;
 import java.util.Scanner;
 
-public class Q14 {
-	
+public class Q14 {	
 public static double calculateExpression(double x) {
     	
-        if (Math.abs(x % Math.PI) < 1e-10) {
-            throw new IllegalArgumentException("x cannot be a multiple of pi.");
-        }
+        if (Math.abs(x % Math.PI) < 1e-10) throw new IllegalArgumentException("x cannot be a multiple of pi.");
+        
         
         double sinValue = Math.sin(x);
         double cosValue = Math.cos(x);
@@ -17,21 +15,19 @@ public static double calculateExpression(double x) {
         if (Math.abs(tanValue - cotValue) < 1e-10) {
             throw new ArithmeticException("Division by zero is not allowed.");
         }
-        
         double expressionValue = Math.log(Math.abs(sinValue + cosValue)) / (tanValue - cotValue);
         
         if (sinValue + cosValue < 0) {
             throw new IllegalArgumentException("Log of a negative value is undefined.");
         }
-        
         return expressionValue;
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         System.out.println("Enter the value of x in radians: ");
-        double x = scanner.nextDouble();
+        double x = sc.nextDouble();
         
         try {
             double result = calculateExpression(x);
@@ -43,9 +39,7 @@ public static double calculateExpression(double x) {
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         } finally {
-            scanner.close();
+            sc.close();
         }
-    }
-    
-    
+    }    
 }
