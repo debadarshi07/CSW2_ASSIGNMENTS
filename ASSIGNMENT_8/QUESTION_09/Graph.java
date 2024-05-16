@@ -1,55 +1,74 @@
+package Q09;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 class Graph {
-    private int vertices;
-    private LinkedList<Integer>[] adjList;
+    int vertices;
+    ArrayList<LinkedList<Integer>> adjacencyList;
+
     Graph(int vertices) {
-        this.vertices = vertices;
-        adjList = new LinkedList[vertices];
-        for (int i = 0; i < vertices; i++) adjList[i] = new LinkedList<>(); 
+        this.vertices=vertices;
+        adjacencyList=new ArrayList<>(vertices);
+        for(int i=0;i<vertices;i++) adjacencyList.add(new LinkedList<>());
     }
 
-    public void addEdge(int source, int destination) {
-        adjList[source].add(destination);
+    void addEdge(int source,int destination) {
+        adjacencyList.get(source).add(destination);
+        adjacencyList.get(destination).add(source); 
     }
-
-    public void readGraph() {
+    
+    void readGraph() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number of edges: ");
+
+        System.out.print("Enter the number of edges:");
         int edges = sc.nextInt();
-        System.out.println("Enter edges (source destination):");
+
         for (int i = 0; i < edges; i++) {
-            int source = sc.nextInt();
-            int destination = sc.nextInt();
+        	System.out.println("Enter edge: ");
+            int source = sc.nextInt(),destination = sc.nextInt();
             addEdge(source, destination);
         }
         sc.close();
     }
 
-    private void dfsUtil(int vertex, boolean[] visited) {
+    void displayAdjacencyList() {
+        System.out.println("Adjacency List:");
+        for(int i=0;i<vertices;i++) {
+            System.out.print(i + ": ");
+            for (Integer vertex: adjacencyList.get(i)) System.out.print(vertex+" ");
+            System.out.println();
+        }
+    }
+
+    void DFS(int initial) {
+        boolean[] visited = new boolean[vertices];
+        DFSRec(initial, visited);
+    }
+    void DFSRec(int vertex, boolean[] visited) {
         visited[vertex] = true;
         System.out.print(vertex + " ");
 
-        for (int neighbor : adjList[vertex]) 
-            if (!visited[neighbor]) dfsUtil(neighbor, visited);  
+        for (Integer adjacentVertex : adjacencyList.get(vertex)) 
+            if (!visited[adjacentVertex]) DFSRec(adjacentVertex, visited);
     }
 
-    public void dfs() {
-        boolean[] visited = new boolean[numVertices];
-        System.out.println("Depth First Traversal:");
-        for (int i = 0; i < vertices; i++) 
-            if (!visited[i]) dfsUtil(i, visited);
-        System.out.println();
-    }
-  
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number of vertices: ");
+
+        System.out.print("Enter the number of vertices:");
         int vertices = sc.nextInt();
+
         Graph graph = new Graph(vertices);
         graph.readGraph();
-        graph.dfs();
+        graph.displayAdjacencyList();
+
+        System.out.print("Enter the initial vertex:");
+        int initial = sc.nextInt();
+
+        System.out.println("Depth First Search traversal: ");
+        graph.DFS(initial);
+        
         sc.close();
     }
 }
