@@ -57,6 +57,7 @@ public class Graph {
 		int vertices=sc.nextInt();
 		Graph graph=new Graph(vertices);
 		graph.readGraph();
+
 		System.out.print("Enter the initial vertex: ");
 		int initial=sc.nextInt();
 		graph.BFS(initial);
