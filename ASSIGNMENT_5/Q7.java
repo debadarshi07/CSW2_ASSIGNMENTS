@@ -4,15 +4,15 @@ import java.util.ArrayList;
 class Course {
 	String name;
 	Course(String name) {
-		this.name = name;
+		this.name=name;
 	}
 }
 class Student {
-	private String name;
-	private List<Course> courses;
+	String name;
+	List<Course> courses;
 	Student(String name) {
-		this.name = name;
-		this.courses = new ArrayList<>();
+		this.name=name;
+		this.courses=new ArrayList<>();
 	}
 	void enroll(Course course) {
 		courses.add(course);
@@ -28,28 +28,28 @@ class Student {
 	}
 	@Override
 	public void finalize() throws Throwable {
-		System.out.println("Garbage collecting student: " + name);
+		System.out.println("Garbage collecting student: "+name);
 	}
 }
 public class Q7 {
 	public static void main(String[] args) {
-		Runtime runtime = Runtime.getRuntime();
+		Runtime runtime=Runtime.getRuntime();
 		
 		System.out.println("Initial total memory: " + runtime.totalMemory() + " bytes.");
 		System.out.println("Initial free memory: " + runtime.freeMemory() + " bytes.");
 		
-		Student student1 = new Student("John Doe");
-		Student student2 = new Student("Jane Doe");
+		Student student1=new Student("John Doe");
+		Student student2=new Student("Jane Doe");
 		
-		Course course1 = new Course("Computer Science");
-		Course course2 = new Course("Mathematics");
+		Course course1=new Course("Computer Science");
+		Course course2=new Course("Mathematics");
 		
 		student1.enroll(course1);
 		student1.enroll(course2);
 		student2.enroll(course1);
 		
-		student1 = null;
-		student2 = null;
+		student1=null;
+		student2=null;
 		
 		runtime.gc();
 		
