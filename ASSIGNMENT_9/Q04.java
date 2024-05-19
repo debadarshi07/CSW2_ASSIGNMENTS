@@ -1,7 +1,6 @@
 @FunctionalInterface
 interface Shape {
     double area();
-
     default void printArea() {
         System.out.println("The area is: " + area());
     }
