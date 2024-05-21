@@ -6,6 +6,6 @@ public class Q06 {
     public static void main(String[] args) {
         Function<Double, Double> square=getSquare();
         double num=15;
-        System.out.println("The square of "+num1+" is: "+square.apply(num));
+        System.out.println("The square of "+num+" is: "+square.apply(num));
     }
 }
