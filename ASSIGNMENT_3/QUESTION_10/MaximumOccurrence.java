@@ -10,7 +10,7 @@ public class MaximumOccurrence {
 
         for (String word : words) {
             word = word.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-            wordFrequencyMap.put(word, wordFrequencyMap.getOrDefault(word, 0));
+            wordFrequencyMap.put(word, wordFrequencyMap.getOrDefault(word, 0)+1);
         }
 
         int maxFrequency = 0;
