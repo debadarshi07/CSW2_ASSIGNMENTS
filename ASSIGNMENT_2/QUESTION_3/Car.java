@@ -12,9 +12,7 @@ public class Car implements Comparable<Car>{
 	
 	@Override
 	public int compareTo(Car o) {
-		if(this.speed==o.speed) return 0;
-		else if(this.speed<o.speed) return -1;
-		else return 1;
+		return Double.compare(this.speed, o.speed);
 	}
 	
 	@Override
