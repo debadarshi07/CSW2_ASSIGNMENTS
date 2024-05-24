@@ -18,8 +18,8 @@ class AdjacencyListRepresentation {
 	}
 
 	void removeEdge(int source,int destination) {
-		adjacencyList.get(source).add(destination);
-		adjacencyList.get(destination).add(source);
+		adjacencyList.get(source).remove(Integer.valueOf(destination));
+		adjacencyList.get(destination).remove(Integer.valueOf(source));
 	}
 
 	void displayAdjList() {
