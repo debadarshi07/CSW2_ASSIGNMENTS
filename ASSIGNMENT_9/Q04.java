@@ -18,8 +18,7 @@ public class Q04{
         };
 
         Shape rectangle=() -> {
-            double width=6;
-            double height=13;
+            double width=6, height=13;
             return width*height;
         };
         
